@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sound Of Heart</title>
+	<style type="text/css">
+
+	
+		body{
+
+			height: 100%;
+		}
+		.container {
+			text-align: center;
+		}
+
+		.head {
+			background-color: #00DDDD;
+			padding-top: 80px;
+			padding-bottom: 25px;
+			font-size: 90px;
+		    color: #F0F0F0;
+		    font-family: Arial;
+
+		}
+
+		.sub {
+			background-color: #00DDDD;
+			border-bottom: 4px solid #DDDDDD;
+			padding-bottom: 10px;
+		}
+
+
+		.input-file-container {
+			position: relative;
+			width: 280px;
+		} 
+		.js .input-file-trigger {
+			display: block;
+  			padding: 14px 45px;
+  			background: rgb(30,70,190);
+  			color: #fff;
+  			font-size: 2em;
+  			transition: all .4s;
+  		cursor: pointer;
+  		height: 50px;
+		}
+		.js .input-file {
+		position: absolute;
+  		top: 0; left: 0;
+  		width: 280px;
+  		opacity: 0;
+  		padding: 14px 0;
+  		cursor: pointer;
+		}
+		.js .input-file:hover + .input-file-trigger,
+		.js .input-file:focus + .input-file-trigger,
+		.js .input-file-trigger:hover,
+		.js .input-file-trigger:focus {
+  		background: #34495E;
+  		color: #39D2B4;
+		}
+
+		.file-return {
+  			margin: 0;
+		}
+		.file-return:not(:empty) {
+  			margin: 1em 0;
+		}
+		.js .file-return {
+		font-style: italic;
+		font-size: .9em;
+		font-weight: bold;
+		}
+		.js .file-return:not(:empty):before {
+  		content: "\n Selected file: \n";
+  		position: absolute;
+  		font-style: normal;
+  		font-weight: normal;
+		}
+	</style>
+
+
+</head>
+<body style=>
+	<div class="container">
+
+		<div class="head">
+			Sound Of Heart
+			<br>
+		</div>
+		<div class="sub">
+			<bold style="font-size: 20px;color: #F0F0F0;font-family: Arial;">A Website That Detects Heart Abnormality By Only The Sound</bold>
+		</div>
+
+		<div style="position: absolute; width:35%;float: left;margin-top: 100px">
+		<bold style="font-size: 30px;font-family: Arial;font-weight: 800;">WITH THE SOUND OF HEART</bold>
+		</div>
+		<div style="width:40%;float: right;margin-top: 100px">
+		<bold style="font-size: 30px;font-family: Arial;font-weight: 800;">WE DEFEAT CARDIAC DISEASE</bold>
+		</div>
+		<div class="formy" style="margin-left: 40%;margin-top: 50px">
+			<form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
+  				<div class="input-file-container">  
+    				<input class="input-file" id="my-file" name="filen" type="file">
+    				<label tabindex="0" for="my-file" class="input-file-trigger">Select Audio</label>
+  				</div>
+  				<input class="submit-file" type="submit" style="margin-right: 620px;margin-top: 50px;background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;">
+			</form>
+		</div>
+
+
+
+<script>
+document.querySelector("html").classList.add('js');
+
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+      
+button.addEventListener( "keydown", function( event ) {  
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+        fileInput.focus();  
+    }  
+});
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});  
+fileInput.addEventListener( "change", function( event ) {  
+	var fn = this.value.split("\\");
+	var fnn = fn[fn.length - 1];
+	
+	if(fnn.length > 12) {
+		button.innerHTML = fnn.substring(0,10) + "..."
+	}else{
+    	button.innerHTML = fnn;
+    }  
+});  
+</script>
+  
+	</div>
+
+
+</body>
+</html>
+
+
+
+
+
